@@ -1,0 +1,511 @@
+.dashboard-container {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dashboard-panel {
+  width: 100%;
+  max-width: 1100px;
+  /* Wider for split layout */
+  padding: 3rem;
+  min-height: 70vh;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.4s var(--ease-apple);
+}
+
+.step-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.step-desc {
+  color: var(--text-secondary);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.input-group label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.char-limit {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+input[type="text"],
+textarea {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Colors List */
+.colors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.color-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.category-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.color-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-btn {
+  opacity: 0.5;
+}
+
+.delete-btn {
+  opacity: 0.5;
+}
+
+.color-item:hover .edit-btn,
+.color-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  color: #ff4d4d;
+}
+
+.add-category-section {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  border: 1px dashed var(--border-color);
+}
+
+.add-category-section p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.available-swatches {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.add-swatch-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-swatch-btn:hover {
+  transform: scale(1.15);
+}
+
+.edit-color-form {
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.edit-input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.edit-input-wrapper input {
+  width: 100%;
+  padding-right: 3rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.edit-char-limit {
+  position: absolute;
+  right: 0.75rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.icon-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Step 1 Split Layout */
+.split-step {
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 3rem !important;
+}
+
+.form-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.jar-preview-side {
+  flex: 0.8;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.preview-header h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.preview-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.preview-jar-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Replicating Label Styles for Preview */
+.preview-label {
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 62%;
+  /* Adjusted for dashboard view */
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.preview-label-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.preview-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.preview-color-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.preview-color-title {
+  font-size: 0.85rem;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Step 2 Split View */
+.split-view {
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 3rem !important;
+}
+
+.left-pane,
+.right-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-chit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.color-selector .swatches {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.swatch-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.swatch-btn:hover {
+  transform: scale(1.1);
+}
+
+.swatch-btn.active {
+  transform: scale(1.2);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Chits List */
+.chits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.chit-preview {
+  background: rgba(0, 0, 0, 0.02);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.chit-preview p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.remove-btn {
+  opacity: 0.5;
+}
+
+.remove-btn:hover {
+  opacity: 1;
+  color: #ff4d4d;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.btn-text {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.btn-text:hover {
+  color: var(--accent-primary);
+}
+
+/* Success View */
+.success-view {
+  align-items: center;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.success-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.link-box {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem 0;
+}
+
+.link-box input {
+  flex: 1;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 900px) {
+  .dashboard-panel {
+    padding: 2rem 1.5rem;
+  }
+
+  .split-step,
+  .split-view {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .form-side,
+  .left-pane,
+  .right-pane,
+  .jar-preview-side {
+    width: 100%;
+    flex: none;
+  }
+
+  /* Option A: Top Preview for Mobile */
+  .jar-preview-side {
+    order: -1;
+    /* Moves preview to top */
+    padding: 1.5rem;
+  }
+
+  .preview-container {
+    max-width: 240px;
+  }
+
+  .preview-label {
+    padding: 0.8rem 0.6rem;
+    border-radius: 8px;
+    width: 65%;
+  }
+
+  .preview-label-list {
+    gap: 0.25rem;
+  }
+
+  .preview-color-swatch {
+    width: 10px;
+    height: 10px;
+  }
+
+  .preview-color-title {
+    font-size: 0.65rem;
+  }
+}
