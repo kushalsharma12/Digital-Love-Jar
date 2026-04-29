@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at top right, var(--bg-tertiary), var(--bg-primary));
+  background: var(--bg-primary);
   padding: 2rem;
 }
 
@@ -23,12 +23,11 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 700;
-  letter-spacing: -0.04em;
-  background: linear-gradient(135deg, #1d1d1f 0%, #495057 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
 .hero-subtitle {
@@ -40,16 +39,18 @@
 
 .btn-primary {
   background: var(--accent-primary);
-  color: var(--bg-primary);
-  font-weight: 600;
-  font-size: 1.125rem;
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  transition: transform 0.2s var(--ease-apple), box-shadow 0.2s var(--ease-apple);
+  color: var(--accent-inverse);
+  font-weight: 500;
+  font-size: 1.05rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 980px; /* Apple pill shape */
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   display: inline-block;
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.2);
 }
 
 .btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+  background: #0077ed; /* Slightly brighter blue */
+  box-shadow: 0 6px 20px rgba(0, 113, 227, 0.3);
 }

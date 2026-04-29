@@ -20,7 +20,7 @@ export default function CreatorDashboard() {
   const handleAddChit = (e) => {
     e.preventDefault();
     if (!chitText.trim()) return;
-    setChits([...chits, { id: Math.random().toString(), text: chitText, colorId: selectedColorId }]);
+    setChits([{ id: Math.random().toString(), text: chitText, colorId: selectedColorId }, ...chits]);
     setChitText('');
   };
 
@@ -232,15 +232,29 @@ export default function CreatorDashboard() {
             </div>
 
             <div className="right-pane">
-              <h3>Notes in Jar ({chits.length})</h3>
+              <div className="pane-header">
+                <h3>Notes in Jar</h3>
+                <span className="chit-count">{chits.length} {chits.length === 1 ? 'Note' : 'Notes'}</span>
+              </div>
               <div className="chits-list">
                 {chits.length === 0 && <p className="empty-state">No notes added yet.</p>}
                 {chits.map(chit => {
                   const chitColor = colors.find(c => c.id === chit.colorId);
                   return (
-                    <div key={chit.id} className="chit-preview" style={{ borderLeftColor: chitColor?.colorHex }}>
-                      <p>{chit.text}</p>
-                      <button onClick={() => handleRemoveChit(chit.id)} className="remove-btn"><X size={14} /></button>
+                    <div 
+                      key={chit.id} 
+                      className="chit-preview" 
+                      style={{ '--chit-color': chitColor?.colorHex }}
+                    >
+                      <div className="chit-preview-content">
+                        <span className="chit-category-tag">
+                          {chitColor?.title}
+                        </span>
+                        <p>{chit.text}</p>
+                      </div>
+                      <button onClick={() => handleRemoveChit(chit.id)} className="remove-btn">
+                        <X size={14} />
+                      </button>
                     </div>
                   );
                 })}

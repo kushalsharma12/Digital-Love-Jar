@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Plus } from 'lucide-react';
 import { getJar } from '../store/jarStore';
 import gsap from 'gsap';
 import './ViewerApp.css';
@@ -461,6 +462,17 @@ export default function ViewerApp() {
             alt="Jar lid"
           />
         </div>
+      </div>
+      
+      {/* Footer / CTA */}
+      <div className="viewer-footer">
+        <div className="footer-content">
+          <p className="footer-tagline">Every little note tells a story.</p>
+          <p className="footer-subtext">Capture your favorite moments and keep them safe in a Digital Love Jar.</p>
+        </div>
+        <Link to="/" className="btn-secondary cta-btn">
+          <Plus size={18} /> Create your Love Jar
+        </Link>
       </div>
 
       {/* Active Chit Overlay */}

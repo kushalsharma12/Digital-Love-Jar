@@ -27,18 +27,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: #f5f5f5;
-  overflow: hidden;
+  justify-content: flex-start;
+  background: var(--bg-primary);
+  overflow-x: hidden;
   position: relative;
-  padding: 2rem 1rem;
-  font-family: 'Patrick Hand', cursive;
+  padding: 4rem 1.5rem;
 }
 
 /* ---- Header ---- */
 .viewer-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0rem;
   z-index: 10;
 }
 
@@ -65,6 +64,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 20; /* Lift above header and footer for better depth */
 }
 
 /* ============================================================
@@ -83,7 +83,11 @@
   position: relative;
   width: 100%;
   max-width: 360px;
+  margin: 0 auto;
   will-change: transform, opacity;
+  /* Pull header and footer closer by trimming transparent whitespace */
+  margin-top: -3rem;
+  margin-bottom: -5rem;
 }
 
 /* Jar body — in normal flow, defines container height */
@@ -94,15 +98,19 @@
   position: relative;
   z-index: 1;
   pointer-events: none;
+  transform: scale(1.1);
+  /* Enlarge slightly to fill the space better */
 }
 
 /* Lid — positioned to sit on the jar neck */
 .lid-img {
   position: absolute;
-  top: -16%;
-  left: 51%;
+  top: -23%;
+  /* Adjusted for new scale */
+  left: 51.5%;
   transform: translateX(-50%);
-  width: 74%;
+  width: 82%;
+  /* Slightly wider to match scaled jar */
   height: auto;
   z-index: 4;
   pointer-events: none;
@@ -393,6 +401,7 @@
   .chit-reveal {
     width: 400px;
   }
+
   .chit-paper {
     min-height: 420px;
   }
@@ -406,4 +415,56 @@
   .viewer-header h1 {
     font-size: 3rem;
   }
+}
+
+/* ---- Footer ---- */
+.viewer-footer {
+  margin-top: 0rem;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 5rem;
+}
+
+.footer-content {
+  text-align: center;
+  max-width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-tagline {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.75rem;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+.footer-subtext {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #86868b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cta-btn {
+  text-decoration: none;
+  font-family: var(--font-sans);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-btn:hover {
+  background: #ffffff;
+  transform: translateY(-2px) scale(1.02);
 }

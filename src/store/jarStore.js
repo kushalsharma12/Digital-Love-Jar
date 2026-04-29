@@ -4,11 +4,11 @@
 const generateId = () => Math.random().toString(36).substring(2, 9);
 
 export const defaultColors = [
-  { id: 'pink', colorHex: '#ff4d85', title: 'I love you because...' },
-  { id: 'red', colorHex: '#ff2a2a', title: 'Remember when?' },
-  { id: 'yellow', colorHex: '#ffcc00', title: 'Song lyrics' },
-  { id: 'green', colorHex: '#85cc2a', title: 'Date ideas' },
-  { id: 'blue', colorHex: '#2a85ff', title: 'Gifts' }
+  { id: 'pink', colorHex: '#fdcfe8', title: 'I love you because...' },
+  { id: 'red', colorHex: '#f28b82', title: 'Remember when?' },
+  { id: 'yellow', colorHex: '#fff475', title: 'Song lyrics' },
+  { id: 'green', colorHex: '#ccff90', title: 'Date ideas' },
+  { id: 'blue', colorHex: '#cbf0f8', title: 'Gifts' }
 ];
 
 export const createJar = (creatorName, labelSettings, chits) => {
