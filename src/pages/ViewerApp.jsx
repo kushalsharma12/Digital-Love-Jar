@@ -388,8 +388,8 @@ export default function ViewerApp() {
     <div className="viewer-page">
       {/* Header */}
       <div className="viewer-header">
-        <h1>A gift for you</h1>
-        <p>From {jarData.creatorName}</p>
+        <h1>A jar full of wonder</h1>
+        <p>Curated with love by {jarData.creatorName}</p>
       </div>
 
       {/* Stage */}
@@ -471,7 +471,7 @@ export default function ViewerApp() {
       {/* Footer / CTA */}
       <div className="viewer-footer">
         <div className="footer-content">
-          <p className="footer-tagline">Every little note tells a story.</p>
+          <h2 className="footer-tagline">Small notes. Big stories.</h2>
           <p className="footer-subtext">Capture your favorite moments and keep them safe in a Digital Love Jar.</p>
         </div>
         <Link to="/" className="btn-secondary cta-btn">

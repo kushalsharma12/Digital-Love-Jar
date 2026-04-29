@@ -43,20 +43,20 @@
 }
 
 .viewer-header h1 {
-  font-family: 'Patrick Hand', cursive;
-  font-size: 2.4rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em; /* Tighten for Display font */
+  color: #1d1d1f;
   margin: 0 0 0.25rem;
 }
 
 .viewer-header p {
-  color: #888;
-  font-style: italic;
-  font-size: 1.15rem;
+  color: #86868b;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
   margin: 0;
-  font-family: 'Patrick Hand', cursive;
 }
 
 /* ---- Stage — Centers the jar assembly on screen ---- */
@@ -149,7 +149,7 @@
 
 .mini-chit {
   position: absolute;
-  width: 18%;
+  width: 32%;
   height: auto;
   opacity: .96;
 
@@ -165,22 +165,22 @@
   position: absolute;
 
   /* belly center zone */
-  top: 54%;
+  top: 59%;
   left: 50%;
 
-  transform: translate(-50%, -50%) rotate(-1deg);
+  transform: translate(-50%, -50%) rotate(-0deg);
 
   z-index: 3;
 
   /* relative to jar belly, not screen */
-  width: 50%;
+  width: 68%;
   height: auto;
 
   padding: 1rem 0.9rem;
 
   background: #fff;
   border-radius: 10px;
-  max-width: 220px;
+  max-width: 280px;
 
   box-shadow:
     0 6px 18px rgba(0, 0, 0, .10),
@@ -229,8 +229,10 @@
 
 /* ---- Color Title ---- */
 .color-title {
-  color: #222;
-  font-size: 0.88rem;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
   line-height: 1.3;
   white-space: normal;
 }
@@ -422,10 +424,12 @@
 }
 
 .footer-tagline {
-  font-family: 'Patrick Hand', cursive;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", sans-serif;
+  font-weight: 600;
   font-size: 1.75rem;
   color: #1d1d1f;
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .footer-subtext {
