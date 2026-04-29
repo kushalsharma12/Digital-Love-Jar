@@ -32,12 +32,16 @@ export default function ViewerApp() {
 
   /* ---- Load jar data ---- */
   useEffect(() => {
-    const data = getJar(jarId);
-    if (data) {
-      setJarData(data);
-    } else {
-      setShowError(true);
-    }
+    const loadJar = async () => {
+      const data = await getJar(jarId);
+      if (data) {
+        setJarData(data);
+      } else {
+        setShowError(true);
+      }
+    };
+    
+    loadJar();
   }, [jarId]);
 
 

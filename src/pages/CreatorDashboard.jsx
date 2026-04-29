@@ -28,7 +28,7 @@ export default function CreatorDashboard() {
     setChits(chits.filter(c => c.id !== id));
   };
 
-  const handleSaveJar = () => {
+  const handleSaveJar = async () => {
     if (!creatorName) {
       alert("Please enter who this jar is from!");
       return;
@@ -37,9 +37,14 @@ export default function CreatorDashboard() {
       alert("Please add at least one note to the jar!");
       return;
     }
-    const jarId = createJar(creatorName, colors, chits);
-    setStep(3);
-    navigate(`/create?jarId=${jarId}`);
+    
+    try {
+      const jarId = await createJar(creatorName, colors, chits);
+      setStep(3);
+      navigate(`/create?jarId=${jarId}`);
+    } catch (error) {
+      alert("Something went wrong while saving your jar. Please try again.");
+    }
   };
 
   const startEditColor = (color) => {

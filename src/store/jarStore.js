@@ -11,7 +11,7 @@ export const defaultColors = [
   { id: 'blue', colorHex: '#cbf0f8', title: 'Gifts' }
 ];
 
-export const createJar = (creatorName, labelSettings, chits) => {
+export const createJar = async (creatorName, labelSettings, chits) => {
   const jarId = generateId();
   const newJar = {
     id: jarId,
@@ -21,14 +21,45 @@ export const createJar = (creatorName, labelSettings, chits) => {
     createdAt: new Date().toISOString()
   };
   
-  const jars = JSON.parse(localStorage.getItem('jars') || '{}');
-  jars[jarId] = newJar;
-  localStorage.setItem('jars', JSON.stringify(jars));
-  
-  return jarId;
+  try {
+    const response = await fetch('/api/save-jar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newJar),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to save jar to the cloud');
+    }
+
+    // Also save to localStorage as a local backup
+    const jars = JSON.parse(localStorage.getItem('jars') || '{}');
+    jars[jarId] = newJar;
+    localStorage.setItem('jars', JSON.stringify(jars));
+    
+    return jarId;
+  } catch (error) {
+    console.error('Error saving jar:', error);
+    // Even if cloud fails, we return the ID if it's in localStorage, 
+    // though the viewer won't see it. Better to handle this in UI.
+    throw error;
+  }
 };
 
-export const getJar = (jarId) => {
+export const getJar = async (jarId) => {
+  // 1. Try cloud first (production behavior)
+  try {
+    const response = await fetch(`/api/get-jar?id=${jarId}`);
+    if (response.ok) {
+      return await response.json();
+    }
+  } catch (error) {
+    console.error('Cloud fetch failed, falling back to local:', error);
+  }
+
+  // 2. Fallback to localStorage (for development or offline creator)
   const jars = JSON.parse(localStorage.getItem('jars') || '{}');
   return jars[jarId] || null;
 };
