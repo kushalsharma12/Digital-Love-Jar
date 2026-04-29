@@ -177,7 +177,7 @@ export default function CreatorDashboard() {
                 <h3>Live Preview</h3>
               </div>
               <div className="preview-container">
-                <img src="/assets/jar_with_lid.svg" alt="Jar with lid" className="preview-jar-img" />
+                <img src="/jar_with_lid.svg" alt="Jar with lid" className="preview-jar-img" />
                 
                 <div className="preview-label">
                   <ul className="preview-label-list">

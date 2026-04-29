@@ -382,7 +382,7 @@ export default function ViewerApp() {
     return <div className="viewer-page">Loading...</div>;
   }
 
-  const getChitSvg = (colorId) => `/assets/chits_svg/${colorId}_chit.svg`;
+  const getChitSvg = (colorId) => `/chits_svg/${colorId}_chit.svg`;
 
   return (
     <div className="viewer-page">
@@ -398,7 +398,7 @@ export default function ViewerApp() {
 
           {/* Layer 1 — Jar body (in normal flow, sets height) */}
           <img
-            src="/assets/jar.svg"
+            src="/jar.svg"
             className="jar-img"
             alt="Glass jar"
           />
@@ -460,7 +460,7 @@ export default function ViewerApp() {
 
           {/* Layer 4 — Lid (on top of everything) */}
           <img
-            src="/assets/lid.svg"
+            src="/lid.svg"
             className="lid-img"
             ref={lidRef}
             alt="Jar lid"
