@@ -27,17 +27,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  background: var(--bg-primary);
+  justify-content: center;
+  background: #f5f5f5;
   overflow-x: hidden;
   position: relative;
-  padding: 4rem 1.5rem;
+  padding: 2rem 1.5rem;
+  font-family: 'Patrick Hand', cursive;
 }
 
 /* ---- Header ---- */
 .viewer-header {
   text-align: center;
-  margin-bottom: 0rem;
+  margin-bottom: 1.5rem;
   z-index: 10;
 }
 
@@ -64,8 +65,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 20;
-  /* Lift above header and footer for better depth */
+  z-index: 20; /* Keep lid above header text */
 }
 
 /* ============================================================
@@ -84,11 +84,7 @@
   position: relative;
   width: 100%;
   max-width: 360px;
-  margin: 0 auto;
   will-change: transform, opacity;
-  /* Pull header and footer closer by trimming transparent whitespace */
-  margin-top: -3rem;
-  margin-bottom: -5rem;
 }
 
 /* Jar body — in normal flow, defines container height */
@@ -99,19 +95,15 @@
   position: relative;
   z-index: 1;
   pointer-events: none;
-  transform: scale(1.1);
-  /* Enlarge slightly to fill the space better */
 }
 
 /* Lid — positioned to sit on the jar neck */
 .lid-img {
   position: absolute;
-  top: -23%;
-  /* Adjusted for new scale */
-  left: 51.5%;
+  top: -16%;
+  left: 51%;
   transform: translateX(-50%);
-  width: 82%;
-  /* Slightly wider to match scaled jar */
+  width: 74%;
   height: auto;
   z-index: 4;
   pointer-events: none;
@@ -150,12 +142,6 @@
    * Mirrors the inner glass curve of the jar so any chit corner
    * that still bleeds toward the glass wall gets softly clipped
    * along the organic oval curve, not a hard rectangle edge.
-   *
-   * Values: ellipse(rx ry at cx cy)
-   *   rx = 46%  — horizontal radius (tighter than 50% to stay inside glass)
-   *   ry = 54%  — vertical radius   (taller than wide to include bottom)
-   *   cx = 50%  — centered
-   *   cy = 60%  — pushed slightly downward so top of pile is fully visible
    */
   clip-path: ellipse(46% 54% at 50% 60%);
 }
@@ -173,8 +159,6 @@
 
 /* ============================================================
    LABEL CARD — White paper note on the jar front
-   
-   Centered directly on the glass body.
    ============================================================ */
 .jar-label {
   position: absolute;
@@ -337,8 +321,6 @@
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Ensure button doesn't tilt with the paper if we want, but user said 'everything' should look tilted? 
-     Actually, better if the button stays straight or tilts with it. I'll let it tilt with the reveal container. */
 }
 
 .btn-close-chit:hover {
@@ -402,7 +384,6 @@
   .chit-reveal {
     width: 400px;
   }
-
   .chit-paper {
     min-height: 420px;
   }
@@ -420,7 +401,7 @@
 
 /* ---- Footer ---- */
 .viewer-footer {
-  margin-top: 0rem;
+  margin-top: 2rem;
   z-index: 10;
   width: 100%;
   display: flex;
@@ -446,7 +427,7 @@
 }
 
 .footer-subtext {
-  font-family: var(--font-sans);
+  font-family: sans-serif;
   font-size: 0.95rem;
   color: #86868b;
   line-height: 1.5;
@@ -455,14 +436,19 @@
 
 .cta-btn {
   text-decoration: none;
-  font-family: var(--font-sans);
+  font-family: sans-serif;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 40px;
+  color: #222;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .cta-btn:hover {
