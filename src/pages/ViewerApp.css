@@ -64,7 +64,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 20; /* Lift above header and footer for better depth */
+  z-index: 20;
+  /* Lift above header and footer for better depth */
 }
 
 /* ============================================================
