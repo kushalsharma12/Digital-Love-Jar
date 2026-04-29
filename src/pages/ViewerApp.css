@@ -38,7 +38,7 @@
 /* ---- Header ---- */
 .viewer-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4.5rem;
   z-index: 10;
 }
 
@@ -65,7 +65,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 20; /* Keep lid above header text */
+  z-index: 20;
+  /* Keep lid above header text */
 }
 
 /* ============================================================
@@ -100,10 +101,10 @@
 /* Lid — positioned to sit on the jar neck */
 .lid-img {
   position: absolute;
-  top: -16%;
-  left: 51%;
+  top: -11.2%;
+  left: 52%;
   transform: translateX(-50%);
-  width: 74%;
+  width: 105.5%;
   height: auto;
   z-index: 4;
   pointer-events: none;
@@ -126,7 +127,7 @@
   transform: translateX(-50%);
 
   /* sit above bottom curve */
-  bottom: 22%;
+  bottom: 8%;
 
   /* narrower than jar outer width */
   width: 58%;
@@ -384,6 +385,7 @@
   .chit-reveal {
     width: 400px;
   }
+
   .chit-paper {
     min-height: 420px;
   }
