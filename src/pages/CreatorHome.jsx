@@ -27,10 +27,6 @@ export default function CreatorHome() {
           Create Your Jar
         </Link>
       </div>
-
-      <footer className="branding-footer">
-        Made with ♥ <a href="https://www.instagram.com/soulshotsstudio/" target="_blank" rel="noopener noreferrer">SoulShots Studio</a>
-      </footer>
     </div>
   );
 }
