@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "digital-jar",
     "public": "dist",
     "ignore": [
       "firebase.json",

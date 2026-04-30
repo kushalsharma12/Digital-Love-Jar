@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBZrXetMNCBodGv1W_Bo2TrrdllRP0wWXg",
-  authDomain: "digital-love-jar.firebaseapp.com",
-  projectId: "digital-love-jar",
-  storageBucket: "digital-love-jar.firebasestorage.app",
-  messagingSenderId: "541723385031",
-  appId: "1:541723385031:web:cb948e5da06adbdc6272e2",
-  measurementId: "G-FELBT3D5KF"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase

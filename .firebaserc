@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "digital-love-jar"
-  }
+  },
+  "targets": {
+    "digital-love-jar": {
+      "hosting": {
+        "digital-jar": [
+          "digitaljar"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
