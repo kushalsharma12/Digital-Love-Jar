@@ -380,7 +380,14 @@ export default function ViewerApp() {
 
   /* ---- Loading state ---- */
   if (!jarData) {
-    return <div className="viewer-page">Loading...</div>;
+    return (
+      <div className="viewer-page loading-screen">
+        <div className="loading-content">
+          <img src="/jar_logo.svg" alt="Digital Love Jar" className="loading-logo" />
+          <p className="loading-text">A jar full of wonder</p>
+        </div>
+      </div>
+    );
   }
 
   const getChitSvg = (colorId) => `/chits_svg/${colorId}_chit.svg`;
