@@ -12,12 +12,12 @@ export default function CreatorHome() {
           {!imageLoaded && <div className="hero-icon-skeleton" />}
           <img
             src="/jar_logo.svg"
-            alt="Digital Love Jar Logo"
+            alt="Digital Jar Logo"
             className={`hero-icon ${imageLoaded ? 'loaded' : ''}`}
             onLoad={() => setImageLoaded(true)}
           />
         </div>
-        <h1 className="hero-title">Digital Love Jar</h1>
+        <h1 className="hero-title">Digital Jar</h1>
         <p className="hero-subtitle">
           Gift a virtual jar filled with your personal notes, memories, and love. 
           Beautifully packaged and ready to be unboxed.
