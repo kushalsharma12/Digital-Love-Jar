@@ -378,13 +378,43 @@ export default function ViewerApp() {
     );
   }
 
+  const [loadingPhraseIndex, setLoadingPhraseIndex] = useState(0);
+  const loadingPhrases = [
+    "Capture your favorite moments and keep them safe in a Digital Love Jar.",
+    "Small notes. Big stories.",
+    "Every little note tells a story worth keeping.",
+    "A digital home for your most precious memories.",
+    "Curated with love, shared with wonder."
+  ];
+
+  useEffect(() => {
+    if (!jarData) {
+      const interval = setInterval(() => {
+        setLoadingPhraseIndex((prev) => (prev + 1) % loadingPhrases.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [jarData, loadingPhrases.length]);
+
   /* ---- Loading state ---- */
   if (!jarData) {
     return (
       <div className="viewer-page loading-screen">
         <div className="loading-content">
-          <img src="/jar_logo.svg" alt="Digital Love Jar" className="loading-logo" />
-          <p className="loading-text">A jar full of wonder</p>
+          <div className="loading-spinner-wrapper">
+            <div className="loading-dot-pulse" />
+          </div>
+          <h2 className="loading-title">Loading...</h2>
+          <div className="phrase-container">
+            {loadingPhrases.map((phrase, idx) => (
+              <p 
+                key={idx} 
+                className={`loading-subtext ${idx === loadingPhraseIndex ? 'active' : ''}`}
+              >
+                {phrase}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     );
