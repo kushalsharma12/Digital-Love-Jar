@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { defaultColors, createJar } from '../store/jarStore';
-import { Plus, X, Link as LinkIcon, Edit2, Check, Trash2 } from 'lucide-react';
+import { Plus, X, Link as LinkIcon, Edit2, Check, Trash2, Loader2 } from 'lucide-react';
 import './CreatorDashboard.css';
 
 export default function CreatorDashboard() {
@@ -16,6 +16,9 @@ export default function CreatorDashboard() {
 
   const [editingColorId, setEditingColorId] = useState(null);
   const [editingTitle, setEditingTitle] = useState('');
+
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState('');
 
   const handleAddChit = (e) => {
     e.preventDefault();
@@ -38,12 +41,18 @@ export default function CreatorDashboard() {
       return;
     }
     
+    setIsSaving(true);
+    setSaveError('');
+
     try {
       const jarId = await createJar(creatorName, colors, chits);
       setStep(3);
       navigate(`/create?jarId=${jarId}`);
     } catch (error) {
-      alert("Something went wrong while saving your jar. Please try again.");
+      console.error("Save error:", error);
+      setSaveError("Error. Please try after some time.");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -264,9 +273,22 @@ export default function CreatorDashboard() {
                   );
                 })}
               </div>
-              <div className="actions">
-                <button className="btn-text" onClick={() => setStep(1)}>Back</button>
-                <button className="btn-primary" onClick={handleSaveJar}>Finish & Share</button>
+              <div className="actions-column">
+                <div className="actions">
+                  <button className="btn-text" onClick={() => setStep(1)} disabled={isSaving}>Back</button>
+                  <button 
+                    className="btn-primary" 
+                    onClick={handleSaveJar} 
+                    disabled={isSaving}
+                  >
+                    {isSaving ? (
+                      <span className="btn-loading-content">
+                        <Loader2 size={18} className="spinner" /> Saving...
+                      </span>
+                    ) : 'Finish & Share'}
+                  </button>
+                </div>
+                {saveError && <p className="save-error-msg">{saveError}</p>}
               </div>
             </div>
           </div>

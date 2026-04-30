@@ -17,12 +17,68 @@
   gap: 0.75rem;
 }
 
-.hero-icon {
+.hero-icon-container {
   width: 160px;
-  height: auto;
+  height: 233px;
+  /* Matches aspect ratio of the SVG */
+  position: relative;
   margin-bottom: 0.5rem;
-  animation: float 6s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+/* Skeleton Shimmer Effect */
+.hero-icon-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.03) 25%,
+      rgba(0, 0, 0, 0.08) 50%,
+      rgba(0, 0, 0, 0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 40px;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.hero-icon {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.08));
+  z-index: 2;
+}
+
+.hero-icon.loaded {
+  opacity: 1;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes float {

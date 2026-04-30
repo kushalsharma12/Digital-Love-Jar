@@ -21,6 +21,7 @@ export default function ViewerApp() {
   const [activeChit, setActiveChit] = useState(null);
   const [isLidOpen, setIsLidOpen] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const assemblyRef = useRef(null);
   const lidRef = useRef(null);
@@ -397,10 +398,12 @@ export default function ViewerApp() {
         <div className="jar-assembly" ref={assemblyRef}>
 
           {/* Layer 1 — Jar body (in normal flow, sets height) */}
+          {!imageLoaded && <div className="jar-skeleton" />}
           <img
             src="/jar.svg"
-            className="jar-img"
+            className={`jar-img ${imageLoaded ? 'loaded' : ''}`}
             alt="Glass jar"
+            onLoad={() => setImageLoaded(true)}
           />
 
           {/* Layer 2 — Chits inside the jar (behind label) */}
