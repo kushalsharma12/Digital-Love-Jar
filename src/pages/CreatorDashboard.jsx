@@ -19,6 +19,7 @@ export default function CreatorDashboard() {
 
   const [isSaving, setIsSaving] = useState(false);
   const [saveError, setSaveError] = useState('');
+  const [copied, setCopied] = useState(false);
 
   const handleAddChit = (e) => {
     e.preventDefault();
@@ -83,6 +84,12 @@ export default function CreatorDashboard() {
 
   const addColor = (colorObj) => {
     setColors([...colors, colorObj]);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(shareLink);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const availableToAdd = defaultColors.filter(dc => !colors.find(c => c.id === dc.id));
@@ -303,10 +310,14 @@ export default function CreatorDashboard() {
             <div className="link-box">
               <input type="text" readOnly value={shareLink} />
               <button 
-                className="btn-secondary"
-                onClick={() => navigator.clipboard.writeText(shareLink)}
+                className={`btn-secondary copy-btn ${copied ? 'copied' : ''}`}
+                onClick={handleCopy}
               >
-                Copy Link
+                {copied ? (
+                  <span className="btn-loading-content">
+                    <Check size={18} /> Copied!
+                  </span>
+                ) : 'Copy Link'}
               </button>
             </div>
 

@@ -614,6 +614,17 @@ textarea {
   animation: fadeInDash 0.3s ease;
 }
 
+.copy-btn {
+  min-width: 120px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy-btn.copied {
+  background: #34c759 !important; /* Apple green */
+  color: white !important;
+  transform: scale(1.05);
+}
+
 @keyframes fadeInDash {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
