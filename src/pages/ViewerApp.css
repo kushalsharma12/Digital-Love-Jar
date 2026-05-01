@@ -1,5 +1,5 @@
 /* ============================================================
-   DIGITAL LOVE JAR — Viewer Page
+   DIGITAL JAR — Viewer Page
    Premium romantic gifting experience
    Mobile-first · Layered SVG composition
    
@@ -57,7 +57,8 @@
 
 .phrase-container {
   position: relative;
-  height: 60px; /* Fixed height to prevent jumps */
+  height: 60px;
+  /* Fixed height to prevent jumps */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -93,9 +94,20 @@
 }
 
 @keyframes dotPulse {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.8); opacity: 0.5; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
 }
 
 /* ---- Header ---- */
@@ -109,7 +121,8 @@
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", sans-serif;
   font-size: 2.6rem;
   font-weight: 600;
-  letter-spacing: -0.02em; /* Tighten for Display font */
+  letter-spacing: -0.02em;
+  /* Tighten for Display font */
   color: #1d1d1f;
   margin: 0 0 0.25rem;
 }
@@ -148,6 +161,8 @@
   position: relative;
   width: 100%;
   max-width: 360px;
+  aspect-ratio: 768 / 1152;
+  /* Stable height based on SVG viewBox */
   will-change: transform, opacity;
 }
 
@@ -174,12 +189,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.02) 25%,
-    rgba(0, 0, 0, 0.05) 50%,
-    rgba(0, 0, 0, 0.02) 75%
-  );
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.02) 25%,
+      rgba(0, 0, 0, 0.05) 50%,
+      rgba(0, 0, 0, 0.02) 75%);
   background-size: 200% 100%;
   animation: shimmer 2s infinite linear;
   border-radius: 40px;
@@ -187,8 +200,13 @@
 }
 
 @keyframes shimmer {
-  from { background-position: 200% 0; }
-  to { background-position: -200% 0; }
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
 }
 
 /* Lid — positioned to sit on the jar neck */
@@ -203,7 +221,12 @@
   pointer-events: none;
   transform-origin: center center;
   will-change: transform;
-  transition: filter 0.3s ease;
+  opacity: 0;
+  transition: filter 0.3s ease, opacity 1s ease;
+}
+
+.jar-img.loaded~.lid-img {
+  opacity: 1;
 }
 
 .lid-img:hover {
@@ -220,7 +243,7 @@
   transform: translateX(-50%);
 
   /* sit above bottom curve */
-  bottom: 8%;
+  bottom: 14%;
 
   /* narrower than jar outer width */
   width: 58%;
@@ -230,6 +253,8 @@
 
   z-index: 3;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease;
 
   /*
    * Option B — Ellipse clip-path as safety net.
@@ -238,6 +263,10 @@
    * along the organic oval curve, not a hard rectangle edge.
    */
   clip-path: ellipse(46% 54% at 50% 60%);
+}
+
+.jar-img.loaded~.chits-pile {
+  opacity: 1;
 }
 
 .mini-chit {
@@ -278,6 +307,13 @@
   box-shadow:
     0 6px 18px rgba(0, 0, 0, .10),
     0 2px 6px rgba(0, 0, 0, .05);
+
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.jar-img.loaded~.jar-label {
+  opacity: 1;
 }
 
 /* ---- Label List ---- */

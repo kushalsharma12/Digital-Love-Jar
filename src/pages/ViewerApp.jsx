@@ -380,7 +380,7 @@ export default function ViewerApp() {
 
   const [loadingPhraseIndex, setLoadingPhraseIndex] = useState(0);
   const loadingPhrases = [
-    "Capture your favorite moments and keep them safe in a Digital Love Jar.",
+    "Capture your favorite moments and keep them safe in a Digital Jar.",
     "Small notes. Big stories.",
     "Every little note tells a story worth keeping.",
     "A digital home for your most precious memories.",
@@ -512,10 +512,10 @@ export default function ViewerApp() {
       <div className="viewer-footer">
         <div className="footer-content">
           <h2 className="footer-tagline">Small notes. Big stories.</h2>
-          <p className="footer-subtext">Capture your favorite moments and keep them safe in a Digital Love Jar.</p>
+          <p className="footer-subtext">Capture your favorite moments and keep them safe in a Digital Jar.</p>
         </div>
         <Link to="/" className="btn-secondary cta-btn">
-          <Plus size={18} /> Create your Love Jar
+          <Plus size={18} /> Create your Jar
         </Link>
       </div>
 

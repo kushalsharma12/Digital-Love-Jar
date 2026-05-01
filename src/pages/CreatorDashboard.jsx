@@ -87,7 +87,8 @@ export default function CreatorDashboard() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(shareLink);
+    const shareMessage = `Here's a Digital Jar for you! Check it out here: ${shareLink}`;
+    navigator.clipboard.writeText(shareMessage);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };

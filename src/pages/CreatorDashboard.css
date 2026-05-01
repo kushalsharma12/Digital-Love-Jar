@@ -579,6 +579,15 @@ textarea {
   .preview-color-title {
     font-size: 0.65rem;
   }
+
+  .link-box {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .copy-btn {
+    width: 100%;
+  }
 }
 
 .actions-column {
